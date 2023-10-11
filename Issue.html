@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <style>
+    h1
+    {
+        font-family: cursive;
+    }
+    h3
+    {
+        font-style: italic;
+        background-color: aqua;
+        color: black;
+        margin-top: 390px;
+        
+    }
+    #nextbutton
+  {
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;           
+  }  
+  #backbutton
+  {
+    margin-top: 10px;
+  }     
+ </style>
+
+</head>
+<body>
+    <a href="library.html" class="btn btn-primary" role="button" aria-disabled="true" id="backbutton" >Back</a>
+    <a href="return.html" class="btn btn-primary" role="button" aria-disabled="true" id="nextbutton" >Next</a>
+    
+    <div class="container">
+        <h1>Issue Book</h1>
+        <button id="issueBookDateBtn" class="btn btn-primary" data-toggle="modal" data-target="#issueBookModal">Issue Book Date</button>
+    </div>
+ <!-- Model -->
+ <div class="modal fade" id="issueBookModal" tabindex="-1" role="dialog" aria-labelledby="issueBookModalLabel" aria-hidden="true" align="center">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">                                                                         
+            <div class="modal-header">
+                <h5 class="modal-title" id="issueBookModalLabel">Issue Book Date</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <!-- Options (Books) -->
+                <label for="bookSelection">Select Book:</label>
+                <select id="bookSelection" class="form-control">
+                    <option value="id_1">Secret</option>
+                        <option value="id_2">2 States</option>
+                        <option value="id_2">Atomic Habits</option>
+                        <option value="id_4">Wings Of Fire</option>
+                        <option value="id_5">Beloved</option>
+                        <option value="id_6">Great Expectations</option>
+                        <option value="id_7">Middlemarch</option>
+                        <option value="id_8">Kosala</option>
+                        <option value="id_9">Turning Points</option>
+                        <option value="id_10">Shyamachi Aai</option>
+                        <option value="id_11">Mrityunjaya</option>
+                    
+                </select>
+                <br>
+                <label for="issueDate">Issue Date:</label>
+                <input type="date" id="issueDate" class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirmIssueBtn">Confirm Issue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+<marquee><h3>When we re collecting books,We are collecting happiness....</h3></marquee>
+</div>
+
+
+  <script>
+     $(document).ready(function () {
+        
+         $("#confirmIssueBtn").click(function () {
+            
+             var selectedBook = $("#bookSelection").val();
+             var issueDate = $("#issueDate").val();
+
+            
+             alert("Book: " + selectedBook + "\nIssue Date: " + issueDate);
+
+             // Close the modal
+             $("#issueBookModal").modal("hide");
+            });
+        });
+    </script> 
+    
+</body>
+</html>

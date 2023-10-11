@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+           h3
+    {
+        font-style: italic;
+        background-color: aqua;
+        color: black;
+        margin-top: 350px;
+        
+    }
+    h1
+    {
+    font-family: cursive;
+    }
+    #nextbutton
+  {
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;           
+  } 
+  #backbutton
+  {
+    margin-top: 10px;
+  }          
+              
+        </style>
+    
+
+</head>
+<body>
+    <a href="library.html" class="btn btn-primary" role="button" aria-disabled="true" id="backbutton" >Back</a>
+    <a href="Issue.html" class="btn btn-primary" role="button" aria-disabled="true" id="nextbutton" >Next</a>
+    
+   
+    <div class="container mt-5">
+        <h1>Search Books</h1>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search book here">
+        <button id="searchButton" class="btn btn-primary mt-2">Search</button>
+
+        <div id="searchResults" class="mt-3">
+            <!-- Search results will be displayed here -->
+          </div>
+        </div>
+    
+        <div>
+          <h3><marquee>"The best books....are those that tell you what you know already</marquee></h3>
+        </div>
+         <script>
+        var books = [
+        { id: 1, title: "Secret", author: "Ronald", price: "350.00" },
+        { id: 2, title: "2 States", author: "Chetan Bhagat", price: "250.00" },
+        { id: 3, title: "Atomic Habits", author: "James Clear", price: "799.00" },
+        { id: 4, title: "Wings of fire", author: "A.P.J.Abdul Kalam", price: "590.00" },
+        { id: 5, title: "Beloved", author: "Toni Morrison", price: "450.00" },
+        { id: 6, title: "Great Expectations", author: "Charles Dickens", price: "200.00" },
+        { id: 7, title: "Middlemarch", author: "George Elicot", price: "340.00" },
+        { id: 8, title: "Kosala", author: "Bhalchandra Nemade", price: "240.00" },
+        { id: 9, title: "Turning Points", author: "A.P.J.Abdul Kalam", price: "250.00" },
+        { id: 10, title: "Shyamachi Aai", author: "Pandurang Sadashiv Sane", price: "150.00" },
+        { id: 11, title: "Mrityunjaya", author: "Shivaji Sawant", price: "550.00" },
+      ];  
+
+      
+function searchBooks() {
+  var searchTerm = $("#searchInput").val().toLowerCase();
+  var results = [];
+
+  for (var i = 0; i < books.length; i++) {
+      var book = books[i];
+      if (book.title.toLowerCase().includes(searchTerm) || book.author.toLowerCase().includes(searchTerm)) {
+          results.push(book);
+      }
+  }
+
+  displayResults(results);
+} 
+
+ 
+function displayResults(results) {
+  var resultHtml = "";
+  for (var i = 0; i < results.length; i++) {
+      var book = results[i];
+      resultHtml += "<p>Book ID: " + book.id + "</p>";
+      resultHtml += "<p>Title: " + book.title + "</p>";
+      resultHtml += "<p>Author: " + book.author + "</p>";
+      resultHtml += "<p>Price: " + book.price + "</p>";
+      resultHtml += "<hr>";
+  }
+  $("#searchResults").html(resultHtml);
+}
+
+$("#searchButton").click(searchBooks);
+
+ 
+    </script>
+
+     
+    
+</body>
+</html>    
